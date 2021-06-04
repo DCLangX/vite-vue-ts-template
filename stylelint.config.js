@@ -1,32 +1,8 @@
 module.exports = {
-  extends: [
-    "stylelint-config-standard",
-    "stylelint-config-recess-order",
-    "stylelint-config-prettier",
-  ],
+  extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
   plugins: ["stylelint-scss"],
   rules: {
-    "at-rule-no-unknown": [
-      true,
-      {
-        ignoreAtRules: [
-          "extend",
-          "at-root",
-          "debug",
-          "warn",
-          "error",
-          "if",
-          "else",
-          "for",
-          "each",
-          "while",
-          "mixin",
-          "include",
-          "content",
-          "return",
-          "function",
-        ],
-      },
-    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
   },
 };

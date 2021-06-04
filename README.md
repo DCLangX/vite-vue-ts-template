@@ -100,41 +100,17 @@ tsconfig.json添加
 
 # 8、引入stylelint规则
 
-`yarn add --dev stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier stylelint-scss`
+`yarn add --dev stylelint stylelint-config-standard stylelint-config-recess-order stylelint-scss`
 
 新建stylelint.config.js
 
 ```
 module.exports = {
-  extends: [
-    "stylelint-config-standard",
-    "stylelint-config-recess-order",
-    "stylelint-config-prettier",
-  ],
+  extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
   plugins: ["stylelint-scss"],
   rules: {
-    "at-rule-no-unknown": [
-      true,
-      {
-        ignoreAtRules: [
-          "extend",
-          "at-root",
-          "debug",
-          "warn",
-          "error",
-          "if",
-          "else",
-          "for",
-          "each",
-          "while",
-          "mixin",
-          "include",
-          "content",
-          "return",
-          "function",
-        ],
-      },
-    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
   },
 };
 ```
