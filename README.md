@@ -209,3 +209,18 @@ vite.config.ts中配置
   ],
 ```
 
+# 13、（可选）添加传统浏览器兼容支持
+
+`yarn add --dev @vitejs/plugin-legacy`
+
+vite.config.ts中配置
+
+`import legacy from '@vitejs/plugin-legacy';`
+
+```
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ],
+```
