@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import vitePluginImp from "vite-plugin-imp";
 import { visualizer } from "rollup-plugin-visualizer";
 import legacy from "@vitejs/plugin-legacy";
+import Unocss from "unocss/vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -42,5 +43,6 @@ export default defineConfig({
       targets: ["defaults", "not IE 11"],
     }),
     visualizer(),
+    Unocss(),
   ],
 });

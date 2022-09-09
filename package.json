@@ -7,31 +7,33 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "@unocss/reset": "^0.45.18",
+    "vue": "^3.2.39"
   },
   "devDependencies": {
-    "@types/node": "^15.6.0",
-    "@typescript-eslint/eslint-plugin": "^4.24.0",
-    "@typescript-eslint/parser": "^4.24.0",
-    "@vitejs/plugin-legacy": "^1.4.3",
+    "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "@vitejs/plugin-legacy": "^2.1.0",
     "@vitejs/plugin-vue": "^3.1.0",
-    "@vue/compiler-sfc": "^3.0.5",
-    "eslint": "^7.27.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.9.0",
-    "prettier": "^2.3.0",
-    "rollup-plugin-visualizer": "^5.5.0",
-    "sass": "^1.34.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-recess-order": "^2.4.0",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-scss": "^3.19.0",
+    "@vue/compiler-sfc": "^3.2.39",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.4.0",
+    "prettier": "^2.7.1",
+    "rollup-plugin-visualizer": "^5.8.1",
+    "sass": "^1.54.9",
+    "stylelint": "^14.11.0",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-scss": "^4.3.0",
     "terser": "^5.15.0",
-    "typescript": "^4.6.4",
+    "typescript": "^4.8.3",
+    "unocss": "^0.45.18",
     "vite": "^3.1.0",
     "vite-plugin-imp": "^2.3.0",
-    "vue-eslint-parser": "^7.8.0",
-    "vue-tsc": "^0.40.4"
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "^0.40.13"
   }
 }

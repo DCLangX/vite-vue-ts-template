@@ -18,13 +18,17 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 ```
 
-# 2、初始化vite项目
+# 2、初始化vite项目（建议使用pnpm）
 
-`yarn create @vitejs/app`
+`yarn create vite`
 
 或
 
-`npm init @vitejs/app `
+`npm create vite@latest`
+
+或
+
+`pnpm create vite`
 
 安装中选择Vue，TypeScript
 
@@ -36,16 +40,24 @@
 
 `npm install eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin vue-eslint-parser --save-dev`
 
+或
+
+`yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin vue-eslint-parser`
+
 # 4、配置eslint
 
 新建.eslintrc.js
 
 ```
 module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
@@ -96,11 +108,19 @@ tsconfig.json添加
 
 # 7、安装scss
 
-`yarn add --dev sass `
+`yarn add --dev sass`
+
+或
+
+`pnpm add -D sass`
 
 # 8、引入stylelint规则
 
 `yarn add --dev stylelint stylelint-config-standard stylelint-config-recess-order stylelint-scss`
+
+或
+
+`pnpm add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-scss`
 
 新建stylelint.config.js
 
@@ -150,6 +170,10 @@ vite.config.ts中配置
 
 `yarn add --dev rollup-plugin-visualizer`
 
+或
+
+`pnpm add -D rollup-plugin-visualizer`
+
 vite.config.ts中配置
 
 `import { visualizer } from "rollup-plugin-visualizer";`
@@ -162,9 +186,30 @@ vite.config.ts中配置
   },
 ```
 
-# 12、（可选）配置UI框架的组件CSS按需导入
+# 12、配置UnoCSS
+`pnpm add @unocss/reset`
+`pnpm add -D unocss`
 
-`yarn add --dev vite-plugin-style-import`
+vite.config.ts中配置
+
+`import Unocss from "unocss/vite";`
+
+```
+  plugins: [
+    Unocss(),
+  ],
+```
+
+main.ts中配置
+
+```
+import "@unocss/reset/normalize.css";
+import "uno.css";
+```
+
+# 13、（可选）配置UI框架的组件CSS按需导入
+
+`pnpm add -D vite-plugin-imp`
 
 vite.config.ts中配置
 
@@ -176,9 +221,9 @@ vite.config.ts中配置
   ],
 ```
 
-# 13、（可选）添加传统浏览器兼容支持
+# 14、（可选）添加传统浏览器兼容支持
 
-`yarn add --dev @vitejs/plugin-legacy`
+`pnpm add -D @vitejs/plugin-legacy terser`
 
 vite.config.ts中配置
 
