@@ -134,16 +134,16 @@ vite.config.ts中加入
 vite.config.ts中配置
 
 ```
-  build: {
-    terserOptions: {
-      compress: {
-        keep_infinity: true,
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    chunkSizeWarningLimit: 1200,
-  },
+  build: {
+    terserOptions: {
+      compress: {
+        keep_infinity: true,
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    chunkSizeWarningLimit: 1200,
+  },
 ```
 
 # 11、配置打包分析插件
@@ -168,44 +168,11 @@ vite.config.ts中配置
 
 vite.config.ts中配置
 
-`import styleImport from "vite-plugin-style-import";`
+`import vitePluginImp from "vite-plugin-imp";`
 
 ```
   plugins: [
-    styleImport({
-      libs: [
-        {
-          libraryName: "ant-design-vue",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `ant-design-vue/es/${name}/style/index`;
-          },
-        },
-        {
-          libraryName: "antd",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `antd/es/${name}/style/index`;
-          },
-        },
-        {
-          libraryName: "vant",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `vant/es/${name}/style`;
-          },
-        },
-        {
-          libraryName: "element-plus",
-          resolveStyle: (name) => {
-            return `element-plus/lib/theme-chalk/${name}.css`;
-          },
-          resolveComponent: (name) => {
-            return `element-plus/lib/${name}`;
-          },
-        },
-      ],
-    }),
+    vitePluginImp()
   ],
 ```
 

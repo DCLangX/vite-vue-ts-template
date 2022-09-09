@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import styleImport from "vite-plugin-style-import";
+import vitePluginImp from "vite-plugin-imp";
 import { visualizer } from "rollup-plugin-visualizer";
 import legacy from "@vitejs/plugin-legacy";
 // https://vitejs.dev/config/
@@ -20,57 +20,27 @@ export default defineConfig({
       },
     },
   },
+  esbuild: {
+    drop: ["console", "debugger"],
+  },
   build: {
+    minify: "esbuild",
+    // vite默认代码混淆使用esbuild，调用上面esbuild的配置项，但是发现@vitejs/plugin-legacy并没有生效，查看源码也并未发现问题，
+    // 但是经过测试下来疑似@vitejs/plugin-legacy仍然使用terser混淆，故仍然保留terserOptions选项，未来如确定不再使用terser可移除该项
     terserOptions: {
       compress: {
         keep_infinity: true,
         drop_console: true,
         drop_debugger: true,
       },
-    }, // brotliSize: false,
-    chunkSizeWarningLimit: 1200,
-    rollupOptions: {
-      plugins: [visualizer()],
     },
   },
   plugins: [
     vue(),
-    styleImport({
-      libs: [
-        {
-          libraryName: "ant-design-vue",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `ant-design-vue/es/${name}/style/index`;
-          },
-        },
-        {
-          libraryName: "antd",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `antd/es/${name}/style/index`;
-          },
-        },
-        {
-          libraryName: "vant",
-          esModule: true,
-          resolveStyle: (name) => {
-            return `vant/es/${name}/style`;
-          },
-        },
-        {
-          libraryName: "element-plus",
-          resolveStyle: (name) => {
-            return `element-plus/lib/theme-chalk/${name}.css`;
-          },
-          resolveComponent: (name) => {
-            return `element-plus/lib/${name}`;
-          },
-        },
-      ],
-    }),
+    vitePluginImp(),
     legacy({
       targets: ["defaults", "not IE 11"],
     }),
+    visualizer(),
   ],
 });

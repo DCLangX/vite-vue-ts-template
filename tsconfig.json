@@ -10,10 +10,11 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "types": ["vite/client"],
-    // 模块名到基于 baseUrl的路径映射的列表。
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "composite": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
