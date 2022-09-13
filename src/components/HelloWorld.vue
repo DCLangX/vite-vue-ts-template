@@ -31,7 +31,8 @@
   <button @click="count++">count is: {{ count }}</button>
   <p>
     Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
+    <code class="px-4px py-2px rounded-4px">components/HelloWorld.vue</code> to
+    test hot module replacement.
   </p>
 </template>
 
@@ -48,15 +49,8 @@ a {
   color: $red;
 }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
 code {
-  padding: 2px 4px;
   color: #304455;
   background-color: #eee;
-  border-radius: 4px;
 }
 </style>
