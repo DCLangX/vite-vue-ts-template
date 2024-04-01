@@ -6,8 +6,8 @@ import legacy from "@vitejs/plugin-legacy";
 import Unocss from "unocss/vite";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode })=>{
-  const env = loadEnv(mode, process.cwd(), '')
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
   return {
     resolve: {
       alias: [
@@ -24,12 +24,18 @@ export default defineConfig(({ command, mode })=>{
         },
       },
     },
-    esbuild: mode === 'production'
-    ? {
-        drop: ['debugger'],
-        pure: ['console.log', 'console.warn', 'console.debug', 'console.trace'],
-      }
-    : {},
+    esbuild:
+      mode === "production"
+        ? {
+            drop: ["debugger"],
+            pure: [
+              "console.log",
+              "console.warn",
+              "console.debug",
+              "console.trace",
+            ],
+          }
+        : {},
     build: {
       minify: "esbuild",
       // vite默认代码混淆使用esbuild，调用上面esbuild的配置项，但是发现@vitejs/plugin-legacy并没有生效，查看源码也并未发现问题，
@@ -47,34 +53,36 @@ export default defineConfig(({ command, mode })=>{
       vitePluginImp({
         libList: [
           {
-            libName: 'vant',
+            libName: "vant",
             replaceOldImport: false,
             style: (name) => {
               const specialMapList = [
-                ['showToast', 'toast'],
-                ['show-toast', 'toast'],
-                ['showLoadingToast', 'toast'],
-                ['show-loading-toast', 'toast'],
-                ['showSuccessToast', 'toast'],
-                ['show-success-toast', 'toast'],
-                ['showFailToast', 'toast'],
-                ['show-fail-toast', 'toast'],
-                ['closeToast', 'toast'],
-                ['close-toast', 'toast'],
-                ['showDialog', 'dialog'],
-                ['show-dialog', 'dialog'],
-                ['showConfirmDialog', 'dialog'],
-                ['show-confirm-dialog', 'dialog'],
-                ['closeDialog', 'dialog'],
-                ['close-dialog', 'dialog'],
-                ['show-notify', 'notify'],
-                ['close-notify', 'notify'],
-              ]
-              const specialMap = specialMapList.find((element) => element[0] === name)
+                ["showToast", "toast"],
+                ["show-toast", "toast"],
+                ["showLoadingToast", "toast"],
+                ["show-loading-toast", "toast"],
+                ["showSuccessToast", "toast"],
+                ["show-success-toast", "toast"],
+                ["showFailToast", "toast"],
+                ["show-fail-toast", "toast"],
+                ["closeToast", "toast"],
+                ["close-toast", "toast"],
+                ["showDialog", "dialog"],
+                ["show-dialog", "dialog"],
+                ["showConfirmDialog", "dialog"],
+                ["show-confirm-dialog", "dialog"],
+                ["closeDialog", "dialog"],
+                ["close-dialog", "dialog"],
+                ["show-notify", "notify"],
+                ["close-notify", "notify"],
+              ];
+              const specialMap = specialMapList.find(
+                (element) => element[0] === name,
+              );
               if (specialMap) {
-                return `vant/es/${specialMap[1]}/style/index`
+                return `vant/es/${specialMap[1]}/style/index`;
               } else {
-                return `vant/es/${name}/style/index`
+                return `vant/es/${name}/style/index`;
               }
             },
           },
@@ -86,5 +94,5 @@ export default defineConfig(({ command, mode })=>{
       visualizer(),
       Unocss(),
     ],
-  }
+  };
 });

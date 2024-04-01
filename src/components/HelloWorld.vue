@@ -31,8 +31,8 @@
   <button @click="count++">count is: {{ count }}</button>
   <p>
     Edit
-    <code class="px-4px py-2px rounded-4px">components/HelloWorld.vue</code> to
-    test hot module replacement.
+    <code class="px-4 py-2 rounded-4">components/HelloWorld.vue</code> to test
+    hot module replacement.
   </p>
 </template>
 
